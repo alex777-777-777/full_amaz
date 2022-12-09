@@ -21,7 +21,7 @@ const postData = (d) => {
     email: d.email,
     password: "Aa12345!",
     phone: d.phone,
-    so: "One Book - 1000 Opportunities",
+    so: "amazon",
     sub: "FreeParam",
     MPC_1: d.answer,
     MPC_2: "FreeParam",
@@ -40,10 +40,9 @@ const postData = (d) => {
     url: url,
     headers: {
       "x-trackbox-username": "GLC",
-      "x-trackbox-password": "21yOpE3Y6r2S",
+      "x-trackbox-password": "123456Aa",
       "x-api-key": "2643889w34df345676ssdas323tgc738",
       "Content-Type": "application/json",
-      "User-Agent": "WordPress/6.0.3; https://fox.tradergroupinc.space",
     },
     data: data,
   };
