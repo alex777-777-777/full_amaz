@@ -3,7 +3,13 @@ const app = express();
 const bodyParser = require("body-parser");
 const axios = require("axios");
 const cors = require("cors");
-const { postData, postToCRMFranklin } = require("./Request.js");
+const {
+  postDataToCrmAdscobar,
+  postToCRMFranklin,
+  postDataToCrmHellLeads,
+  postDataToCrmTssuccess,
+} = require("./Request.js");
+const { json } = require("body-parser");
 
 const port = process.env.PORT || 5000;
 app.use(
@@ -17,23 +23,44 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.json({ users: ["ueserOne", "ueserTwo"] });
 });
-app.post("/quest", async (req, res) => {
+app.post("/adscobar", async (req, res) => {
   try {
-    postData(req.body);
-    res.status(200).json("success");
+    postDataToCrmAdscobar(req.body);
   } catch (error) {
     console.log(error);
   }
 });
-app.post("/franklin", async (req, res) => {
+app.post("/franklin", (req, res) => {
   try {
-    await postToCRMFranklin(req.body);
-    res.status(200).json("success");
+    postToCRMFranklin(req.body);
+    res.setHeader("Content-Type", "application/json");
   } catch (error) {
-    res.status(400).json("error mesage");
-    console.log(error);
+    res.json({ message: "Error" });
+  }
+});
+app.post("/hleads", async (req, res) => {
+  try {
+    const response = await postDataToCrmHellLeads(req.body);
+    console.log(response);
+    //res.end("data edding");
+    res.setHeader("Content-Type", "application/json");
+    res.json(response.data);
+  } catch (error) {
+    res.json({ message: "Error" });
+  }
+});
+app.post("/tssuccess", async (req, res) => {
+  try {
+    const response = await postDataToCrmTssuccess(req.body);
+    console.log(response);
+    //res.end("data edding");
+    res.setHeader("Content-Type", "application/json");
+    res.json(response.data);
+  } catch (error) {
+    res.json({ message: "Error" });
   }
 });
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
+
