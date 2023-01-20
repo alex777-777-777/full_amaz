@@ -8,6 +8,7 @@ const {
   postToCRMFranklin,
   postDataToCrmHellLeads,
   postDataToCrmTssuccess,
+  postDataToCRMVikTeam,
 } = require("./Request.js");
 const { json } = require("body-parser");
 
@@ -60,7 +61,19 @@ app.post("/tssuccess", async (req, res) => {
     res.json({ message: "Error" });
   }
 });
+app.post("/vikteam", async (req, res) => {
+  try {
+    const response = await postDataToCRMVikTeam(req.body);
+    console.log(response);
+    //res.end("data edding");
+    res.setHeader("Content-Type", "application/json");
+    res.json(response.data);
+  } catch (error) {
+    res.json({ message: "Error" });
+  }
+});
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
+
 
