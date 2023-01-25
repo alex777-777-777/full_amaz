@@ -47,15 +47,7 @@ const postDataToCrmAdscobar = (d) => {
       console.log(error);
     });
 };
-const autologin = (d) => {
-  return axios
-    .get(
-      `https://frnkaffs-api.com/api/v2/brokers/login/details?leadRequestID=${d}`,
-      { headers: { "Api-Key": "6D0D404D-DF26-1A5E-A88D-E0ECC6A4E17E " } }
-    )
-    .then((res) => res)
-    .catch((err) => console.log(err));
-};
+
 const postToCRMFranklin = (d) => {
   const url = `https://frnkaffs-api.com/api/v2/leads`;
 
@@ -80,7 +72,7 @@ const postToCRMFranklin = (d) => {
   };
 
   return axios(requestOptions)
-    .then((response) => console.log(response))
+    .then((response) => response)
     .catch(function (error) {
       return error;
     });
@@ -186,4 +178,3 @@ module.exports = {
   postDataToCrmTssuccess,
   postDataToCRMVikTeam,
 };
-
