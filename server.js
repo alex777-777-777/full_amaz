@@ -31,10 +31,13 @@ app.post("/adscobar", async (req, res) => {
     console.log(error);
   }
 });
-app.post("/franklin", (req, res) => {
+app.post("/franklin", async (req, res) => {
   try {
-    postToCRMFranklin(req.body);
+    const response = await postToCRMFranklin(req.body);
+    console.log(response);
+    //res.end("data edding");
     res.setHeader("Content-Type", "application/json");
+    res.json(response.data);
   } catch (error) {
     res.json({ message: "Error" });
   }
@@ -53,7 +56,6 @@ app.post("/hleads", async (req, res) => {
 app.post("/tssuccess", async (req, res) => {
   try {
     const response = await postDataToCrmTssuccess(req.body);
-    console.log(response);
     //res.end("data edding");
     res.setHeader("Content-Type", "application/json");
     res.json(response.data);
@@ -75,5 +77,3 @@ app.post("/vikteam", async (req, res) => {
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
-
-
