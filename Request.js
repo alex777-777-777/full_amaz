@@ -12,7 +12,7 @@ const postDataToCrmAdscobar = (d) => {
     email: d.email,
     password: "123456Aa",
     phone: d.phone,
-    so: "AMAZON",
+    so: d.land,
     sub: "FreeParam",
     MPC_1: d.answer,
     MPC_2: "FreeParam",
@@ -39,13 +39,9 @@ const postDataToCrmAdscobar = (d) => {
     data: data,
   };
 
-  axios(requestOptions)
-    .then(function (response) {
-      console.log(JSON.stringify(response.data));
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+  return axios(requestOptions)
+    .then((res) => res)
+    .catch((err) => err);
 };
 
 const postToCRMFranklin = (d) => {
