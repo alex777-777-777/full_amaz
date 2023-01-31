@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-const axios = require("axios");
 const cors = require("cors");
 const {
   postDataToCrmAdscobar,
@@ -26,9 +25,13 @@ app.get("/", (req, res) => {
 });
 app.post("/adscobar", async (req, res) => {
   try {
-    postDataToCrmAdscobar(req.body);
+    const response = await postDataToCrmAdscobar(req.body);
+    console.log(response.data);
+    //res.end("data edding");
+    res.setHeader("Content-Type", "application/json");
+    res.json(response.data);
   } catch (error) {
-    console.log(error);
+    res.json({ message: "Error" });
   }
 });
 app.post("/franklin", async (req, res) => {
