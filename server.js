@@ -8,6 +8,7 @@ const {
   postDataToCrmHellLeads,
   postDataToCrmTssuccess,
   postDataToCRMVikTeam,
+  postToCRMTrafficSpace,
 } = require("./Request.js");
 const { json } = require("body-parser");
 
@@ -69,6 +70,17 @@ app.post("/tssuccess", async (req, res) => {
 app.post("/vikteam", async (req, res) => {
   try {
     const response = await postDataToCRMVikTeam(req.body);
+    console.log(response);
+    //res.end("data edding");
+    res.setHeader("Content-Type", "application/json");
+    res.json(response.data);
+  } catch (error) {
+    res.json({ message: "Error" });
+  }
+});
+app.post("/trafficSpace", async (req, res) => {
+  try {
+    const response = await postToCRMTrafficSpace(req.body);
     console.log(response);
     //res.end("data edding");
     res.setHeader("Content-Type", "application/json");
