@@ -259,7 +259,7 @@ const postDataToCRMBigCityLife = async (d) => {
   };
   const token = await auth();
 
-  const url = `https://affiliate.overton.live/api/aff/leads`;
+  const url = `https://affiliate.overton.live/api/aff/accounts`;
   const data = {
     FirstName: d.name,
     LastName: d.name,
