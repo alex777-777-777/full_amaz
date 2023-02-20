@@ -268,6 +268,7 @@ const postDataToCRMBigCityLife = async (d) => {
     Country: d.geo,
     AffiliateId: "GLCNord",
     OwnerId: 575,
+    CampaignId:"Amazon"
   };
   const requestOptions = {
     method: "post",
