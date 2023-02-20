@@ -9,6 +9,9 @@ const {
   postDataToCrmTssuccess,
   postDataToCRMVikTeam,
   postToCRMTrafficSpace,
+  postDataToCrmTraffDrive,
+  postDataToCRMRoyalGroup,
+  postDataToCRMBigCityLife,
 } = require("./Request.js");
 const { json } = require("body-parser");
 
@@ -27,6 +30,17 @@ app.get("/", (req, res) => {
 app.post("/adscobar", async (req, res) => {
   try {
     const response = await postDataToCrmAdscobar(req.body);
+    console.log(response.data);
+    //res.end("data edding");
+    res.setHeader("Content-Type", "application/json");
+    res.json(response.data);
+  } catch (error) {
+    res.json({ message: "Error" });
+  }
+});
+app.post("/bigcitylife", async (req, res) => {
+  try {
+    const response = await postDataToCRMBigCityLife(req.body);
     console.log(response.data);
     //res.end("data edding");
     res.setHeader("Content-Type", "application/json");
@@ -55,6 +69,17 @@ app.post("/hleads", async (req, res) => {
     res.json(response.data);
   } catch (error) {
     res.json({ message: "Error" });
+  }
+});
+app.post("/traffdrive", async (req, res) => {
+  try {
+    const response = await postDataToCrmTraffDrive(req.body);
+    console.log(response);
+    //res.end("data edding");
+    res.setHeader("Content-Type", "application/json");
+    res.json(response.data);
+  } catch (error) {
+    res.json({ message: `Error => ${error}` });
   }
 });
 app.post("/tssuccess", async (req, res) => {
