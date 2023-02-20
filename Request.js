@@ -194,6 +194,95 @@ const postToCRMTrafficSpace = (d) => {
     .then((res) => res)
     .catch((err) => err);
 };
+
+const postDataToCrmTraffDrive = (d) => {
+  const url = `https://platform.adscobar.com/api/signup/procform`;
+  const data = JSON.stringify({
+    ai: "2958661",
+    ci: "1",
+    gi: "90",
+    userip: d.ip,
+    firstname: d.name,
+    lastname: d.name,
+    email: d.email,
+    password: "123456Aa",
+    phone: d.phone,
+    so: d.land,
+    sub: "FreeParam",
+    MPC_1: d.answer,
+    MPC_2: "FreeParam",
+    MPC_3: "74588",
+    MPC_4: "FreeParam",
+    MPC_5: "FreeParam",
+    MPC_6: "FreeParam",
+    MPC_7: "FreeParam",
+    MPC_8: "FreeParam",
+    MPC_9: "FreeParam",
+    MPC_10: "FreeParam",
+  });
+
+  const requestOptions = {
+    method: "post",
+    url: url,
+    headers: {
+      "x-trackbox-username": "GLC",
+      "x-trackbox-password": "Td987654321!",
+      "x-api-key": "264388973aaa9b2f9eb2aa84a9c7382e",
+      "Content-Type": "application/json",
+      "User-Agent": "WordPress/6.0.3; ",
+    },
+    data: data,
+  };
+  return axios(requestOptions)
+    .then((res) => res)
+    .catch((err) => err);
+};
+
+const postDataToCRMBigCityLife = async (d) => {
+  const auth = () => {
+    const url = `https://affiliate.overton.live/api/affiliate/generateauthtoken`;
+    const data = {
+      userName: "GLCNord",
+      password: "Aa123456@",
+    };
+    const requestOptions = {
+      method: "post",
+      url: url,
+      data: data,
+      headers: {
+        "Content-type": " Application/json",
+      },
+    };
+    return axios(requestOptions)
+      .then((res) => res.data.token)
+      .catch((err) => err);
+  };
+  const token = await auth();
+
+  const url = `https://affiliate.overton.live/api/aff/leads`;
+  const data = {
+    FirstName: d.name,
+    LastName: d.name,
+    Phone: d.phone,
+    Email: d.email,
+    Country: d.geo,
+    AffiliateId: "GLCNord",
+    OwnerId: 575,
+  };
+  const requestOptions = {
+    method: "post",
+    url: url,
+    data: data,
+    headers: {
+      AuthToken: token,
+      "Content-type": " Application/json",
+    },
+  };
+
+  return axios(requestOptions)
+    .then((res) => res)
+    .catch((err) => err);
+};
 module.exports = {
   postDataToCrmAdscobar,
   postToCRMFranklin,
@@ -201,4 +290,6 @@ module.exports = {
   postDataToCrmTssuccess,
   postDataToCRMVikTeam,
   postToCRMTrafficSpace,
+  postDataToCrmTraffDrive,
+  postDataToCRMBigCityLife,
 };
