@@ -284,6 +284,48 @@ const postDataToCRMBigCityLife = async (d) => {
     .then((res) => res)
     .catch((err) => err);
 };
+const postDataToCrmLeadShot = (d) => {
+  const url = `https://ls.leadshot.cc/api/signup/procform`;
+  const data = JSON.stringify({
+    ai: "2958036",
+    ci: "1",
+    gi: "21",
+    userip: d.ip,
+    firstname: d.name,
+    lastname: d.name,
+    email: d.email,
+    password: "GlcTeam1!",
+    phone: d.phone,
+    so: d.land,
+    sub: "FreeParam",
+    MPC_1: d.id,
+    MPC_2: "FreeParam",
+    MPC_3: "FreeParam",
+    MPC_4: "FreeParam",
+    MPC_5: "FreeParam",
+    MPC_6: "FreeParam",
+    MPC_7: "FreeParam",
+    MPC_8: "FreeParam",
+    MPC_9: "FreeParam",
+    MPC_10: "FreeParam",
+  });
+
+  const requestOptions = {
+    method: "post",
+    url: url,
+    headers: {
+      "x-trackbox-username": "GlcTeam",
+      "x-trackbox-password": "GlcTeam1!",
+      "x-api-key": "2643889w34df345676ssdas323tgc738",
+      "Content-Type": "application/json",
+      "User-Agent": "WordPress/6.0.3; ",
+    },
+    data: data,
+  };
+  return axios(requestOptions)
+    .then((res) => res)
+    .catch((err) => err);
+};
 module.exports = {
   postDataToCrmAdscobar,
   postToCRMFranklin,
@@ -293,4 +335,5 @@ module.exports = {
   postToCRMTrafficSpace,
   postDataToCrmTraffDrive,
   postDataToCRMBigCityLife,
+  postDataToCrmLeadShot,
 };
