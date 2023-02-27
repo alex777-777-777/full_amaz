@@ -10,7 +10,7 @@ const {
   postDataToCRMVikTeam,
   postToCRMTrafficSpace,
   postDataToCrmTraffDrive,
-  postDataToCRMRoyalGroup,
+  postDataToCrmLeadShot,
   postDataToCRMBigCityLife,
 } = require("./Request.js");
 const { json } = require("body-parser");
@@ -30,6 +30,17 @@ app.get("/", (req, res) => {
 app.post("/adscobar", async (req, res) => {
   try {
     const response = await postDataToCrmAdscobar(req.body);
+    console.log(response.data);
+    //res.end("data edding");
+    res.setHeader("Content-Type", "application/json");
+    res.json(response.data);
+  } catch (error) {
+    res.json({ message: "Error" });
+  }
+});
+app.post("/leadshot", async (req, res) => {
+  try {
+    const response = await postDataToCrmLeadShot(req.body);
     console.log(response.data);
     //res.end("data edding");
     res.setHeader("Content-Type", "application/json");
