@@ -68,10 +68,8 @@ const postToCRMFranklin = (d) => {
   };
 
   return axios(requestOptions)
-    .then((response) => response)
-    .catch(function (error) {
-      return error;
-    });
+    .then((res) => res)
+    .catch((err) => err);
 };
 
 const postDataToCrmHellLeads = (d) => {
