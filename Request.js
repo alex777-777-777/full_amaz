@@ -16,7 +16,7 @@ const postDataToCrmAdscobar = (d) => {
     sub: "FreeParam",
     MPC_1: d.answer,
     MPC_2: "FreeParam",
-    MPC_3: "74588",
+    MPC_3: "FreeParam",
     MPC_4: "FreeParam",
     MPC_5: "FreeParam",
     MPC_6: "FreeParam",
@@ -32,7 +32,7 @@ const postDataToCrmAdscobar = (d) => {
     headers: {
       "x-trackbox-username": "GLCWORLD",
       "x-trackbox-password": "123456Aa",
-      "x-api-key": "264388973aaa9b2f9eb2aa84a9c7382e",
+      "x-api-key": "2643889w34df345676ssdas323tgc738",
       "Content-Type": "application/json",
       "User-Agent": "WordPress/6.0.3; https://fox.tradergroupinc.space",
     },
