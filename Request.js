@@ -3,9 +3,9 @@ const axios = require("axios");
 const postDataToCrmAdscobar = (d) => {
   const url = `https://platform.adscobar.com/api/signup/procform`;
   const data = JSON.stringify({
-    ai: "2958661",
+    ai: "2958791",
     ci: "1",
-    gi: "311",
+    gi: "366",
     userip: d.ip,
     firstname: d.name,
     lastname: d.name,
@@ -30,9 +30,9 @@ const postDataToCrmAdscobar = (d) => {
     method: "post",
     url: url,
     headers: {
-      "x-trackbox-username": "GLC",
+      "x-trackbox-username": "GLCWORLD",
       "x-trackbox-password": "123456Aa",
-      "x-api-key": "2643889w34df345676ssdas323tgc738",
+      "x-api-key": "264388973aaa9b2f9eb2aa84a9c7382e",
       "Content-Type": "application/json",
       "User-Agent": "WordPress/6.0.3; https://fox.tradergroupinc.space",
     },
