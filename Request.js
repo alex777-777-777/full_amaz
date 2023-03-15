@@ -54,8 +54,8 @@ const postToCRMFranklin = (d) => {
     password: "Pas21word2",
     phone: Number(d.phone),
     ip: d.ip,
-    custom1: d.answer,
-    offerName: "Amazon",
+    custom1: d.id,
+    offerName: d.land,
   });
   const requestOptions = {
     method: "post",
