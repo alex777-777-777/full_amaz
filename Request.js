@@ -34,7 +34,6 @@ const postDataToCrmAdscobar = (d) => {
       "x-trackbox-password": "123456Aa",
       "x-api-key": "2643889w34df345676ssdas323tgc738",
       "Content-Type": "application/json",
-      "User-Agent": "WordPress/6.0.3; https://fox.tradergroupinc.space",
     },
     data: data,
   };
