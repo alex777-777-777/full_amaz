@@ -1,5 +1,29 @@
 const axios = require("axios");
 
+const postToGoogleSheet = (d) => {
+  const data = {
+    Email: d.email,
+    Name: `${d.name} ${d.sName}`,
+    Phone: d.phone,
+    Created: "x-sheetmonkey-current-date-time",
+    Direction: d.funnel,
+    Answers: d.answer,
+    IP: d.ip,
+  };
+  const url = "https://api.sheetmonkey.io/form/xvNBfrMZTXpbwwnu4R9oBV";
+  const requestOptions = {
+    method: "post",
+    url: url,
+    headers: {
+      "Content-Type": "application/json",
+    },
+    data: JSON.stringify(data),
+  };
+  return axios(requestOptions)
+    .then((res) => res)
+    .catch((err) => err);
+};
+
 const postDataToCrmAdscobar = (d) => {
   const url = `https://platform.adscobar.com/api/signup/procform`;
   const data = JSON.stringify({
@@ -333,4 +357,5 @@ module.exports = {
   postDataToCrmTraffDrive,
   postDataToCRMBigCityLife,
   postDataToCrmLeadShot,
+  postToGoogleSheet
 };
