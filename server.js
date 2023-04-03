@@ -12,6 +12,7 @@ const {
   postDataToCrmTraffDrive,
   postDataToCrmLeadShot,
   postDataToCRMBigCityLife,
+  postToGoogleSheet
 } = require("./Request.js");
 const { json } = require("body-parser");
 
@@ -27,6 +28,19 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.json({ users: ["ueserOne", "ueserTwo"] });
 });
+
+app.post("/add-lead", async (req, res) => {
+  try {
+    const response = await postToGoogleSheet(req.body);
+    console.log(response.data);
+    //res.end("data edding");
+    res.setHeader("Content-Type", "application/json");
+    res.status(200).json("Lead added successfully");
+  } catch (error) {
+    res.json({ message: "Error" });
+  }
+});
+
 app.post("/adscobar", async (req, res) => {
   try {
     const response = await postDataToCrmAdscobar(req.body);
