@@ -67,6 +67,91 @@ const postDataToCrmAdscobar = (d) => {
     .catch((err) => err);
 };
 
+const postDataToCrmCoinvista = (d) => {
+  const url = `https://cv.coinsvista.com/api/signup/procform`;
+  const data = JSON.stringify({
+    ai: "2958286",
+    ci: "1",
+    gi: "203",
+    userip: d.ip,
+    firstname: d.name,
+    lastname: d.name,
+    email: d.email,
+    password: "123456Aa",
+    phone: d.phone,
+    so: d.land,
+    sub: "FreeParam",
+    MPC_1: d.id,
+    MPC_2: "FreeParam",
+    MPC_3: "FreeParam",
+    MPC_4: "FreeParam",
+    MPC_5: "FreeParam",
+    MPC_6: "FreeParam",
+    MPC_7: "FreeParam",
+    MPC_8: "FreeParam",
+    MPC_9: "FreeParam",
+    MPC_10: "FreeParam",
+  });
+
+  const requestOptions = {
+    method: "post",
+    url: url,
+    headers: {
+      "x-trackbox-username": "GLC",
+      "x-trackbox-password": "Coinvista_2023",
+      "x-api-key": "2643889w34df345676ssdas323tgc738",
+      "Content-Type": "application/json",
+    },
+    data: data,
+  };
+
+  return axios(requestOptions)
+    .then((res) => res)
+    .catch((err) => err);
+};
+
+const postDataToCrmСelineMarketing = (d) => {
+  const url = `https://network.celine-marketing.de/api/signup/procform`;
+  const data = JSON.stringify({
+    ai: "2958117",
+    ci: "1",
+    gi: "81",
+    userip: d.ip,
+    firstname: d.name,
+    lastname: d.name,
+    email: d.email,
+    password: "123456Aa",
+    phone: d.phone,
+    so: d.land,
+    sub: "FreeParam",
+    MPC_1: d.id,
+    MPC_2: "FreeParam",
+    MPC_3: "FreeParam",
+    MPC_4: "FreeParam",
+    MPC_5: "FreeParam",
+    MPC_6: "FreeParam",
+    MPC_7: "FreeParam",
+    MPC_8: "FreeParam",
+    MPC_9: "FreeParam",
+    MPC_10: "FreeParam",
+  });
+
+  const requestOptions = {
+    method: "post",
+    url: url,
+    headers: {
+      "x-trackbox-username": "Alex",
+      "x-trackbox-password": "xSdW7dwI0P",
+      "x-api-key": "2643889w34df345676ssdas323tgc738",
+      "Content-Type": "application/json",
+    },
+    data: data,
+  };
+
+  return axios(requestOptions)
+    .then((res) => res)
+    .catch((err) => err);
+};
 const postToCRMFranklin = (d) => {
   const url = `https://frnkaffs-api.com/api/v2/leads`;
 
@@ -357,5 +442,7 @@ module.exports = {
   postDataToCrmTraffDrive,
   postDataToCRMBigCityLife,
   postDataToCrmLeadShot,
-  postToGoogleSheet
+  postToGoogleSheet,
+  postDataToCrmCoinvista,
+  postDataToCrmСelineMarketing
 };
