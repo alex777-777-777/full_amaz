@@ -12,7 +12,9 @@ const {
   postDataToCrmTraffDrive,
   postDataToCrmLeadShot,
   postDataToCRMBigCityLife,
-  postToGoogleSheet
+  postToGoogleSheet,
+  postDataToCrmCoinvista,
+  postDataToCrmСelineMarketing
 } = require("./Request.js");
 const { json } = require("body-parser");
 
@@ -44,6 +46,28 @@ app.post("/add-lead", async (req, res) => {
 app.post("/adscobar", async (req, res) => {
   try {
     const response = await postDataToCrmAdscobar(req.body);
+    console.log(response.data);
+    //res.end("data edding");
+    res.setHeader("Content-Type", "application/json");
+    res.json(response.data);
+  } catch (error) {
+    res.json({ message: "Error" });
+  }
+});
+app.post("/coinvista", async (req, res) => {
+  try {
+    const response = await postDataToCrmCoinvista(req.body);
+    console.log(response.data);
+    //res.end("data edding");
+    res.setHeader("Content-Type", "application/json");
+    res.json(response.data);
+  } catch (error) {
+    res.json({ message: "Error" });
+  }
+});
+app.post("/celinemarketing", async (req, res) => {
+  try {
+    const response = await postDataToCrmСelineMarketing(req.body);
     console.log(response.data);
     //res.end("data edding");
     res.setHeader("Content-Type", "application/json");
