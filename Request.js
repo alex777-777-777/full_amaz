@@ -75,7 +75,7 @@ const postDataToCrmCoinvista = (d) => {
     gi: "203",
     userip: d.ip,
     firstname: d.name,
-    lastname: d.name,
+    lastname: d.sName,
     email: d.email,
     password: "123456Aa",
     phone: d.phone,
