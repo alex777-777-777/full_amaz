@@ -158,7 +158,7 @@ const postToCRMFranklin = (d) => {
   const data = new URLSearchParams({
     email: d.email,
     firstName: d.name,
-    lastName: d.name,
+    lastName: d.sName,
     password: "Pas21word2",
     phone: Number(d.phone),
     ip: d.ip,
