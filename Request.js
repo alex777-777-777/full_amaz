@@ -67,7 +67,7 @@ const postDataToCrmAdscobar = (d) => {
     .catch((err) => err);
 };
 const postDataToCrmGlc = (d) => {
-  const url = `https://platform.adscobar.com/api/signup/procform`;
+  const url = `https://gc.glcompany.pro/api/signup/procform`;
   const data = JSON.stringify({
     ai: "2958034",
     ci: "1",
