@@ -14,7 +14,8 @@ const {
   postDataToCRMBigCityLife,
   postToGoogleSheet,
   postDataToCrmCoinvista,
-  postDataToCrmСelineMarketing
+  postDataToCrmСelineMarketing,
+  postDataToCrmGlc
 } = require("./Request.js");
 const { json } = require("body-parser");
 
@@ -30,7 +31,17 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/", (req, res) => {
   res.json({ users: ["ueserOne", "ueserTwo"] });
 });
-
+app.post("/glc", async (req, res) => {
+  try {
+    const response = await postDataToCrmGlc(req.body);
+    console.log(response.data);
+    //res.end("data edding");
+    res.setHeader("Content-Type", "application/json");
+    res.json(response.data);
+  } catch (error) {
+    res.json({ message: "Error" });
+  }
+});
 app.post("/add-lead", async (req, res) => {
   try {
     const response = await postToGoogleSheet(req.body);
