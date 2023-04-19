@@ -71,7 +71,7 @@ const postDataToCrmGlc = (d) => {
   const data = JSON.stringify({
     ai: "2958034",
     ci: "1",
-    gi: "17",
+    gi: "18",
     userip: d.ip,
     firstname: d.name,
     lastname: d.sName,
@@ -96,9 +96,9 @@ const postDataToCrmGlc = (d) => {
     method: "post",
     url: url,
     headers: {
-      "x-trackbox-username": "GLCTraf",
+      "x-trackbox-username": "GLCMB1",
       "x-trackbox-password": "Aa12345!",
-      "x-api-key": "264388973aaa9b2f9eb2aa84a9c7382e",
+      "x-api-key": "2643889w34df345676ssdas323tgc738",
       "Content-Type": "application/json",
     },
     data: data,
