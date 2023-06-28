@@ -11,6 +11,7 @@ const postDataToCRMVikTeam = (d) => {
     phone: d.phone,
     email: d.email,
     country: d.geo,
+    comment:d.answer
   };
   const requestOptions = {
     method: "post",
