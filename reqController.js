@@ -6,6 +6,7 @@ const { postDataToCrmTssuccess } = require("./requests/tsSuccess.js");
 const { postDataToCRMVikTeam } = require("./requests/vikTeam.js");
 const {postDataToCrmСelineMarketing} = require("./requests/сelineMarketing.js");
 const {postDataToCrmFranklin} = require("./requests/franklin.js");
+const {postDataToCRMFocusFox} = require("./requests/focusFox.js");
 class postController {
   async glc(req, res) {
     try {
@@ -15,7 +16,16 @@ class postController {
     } catch (error) {
       res.status(500).json(error);
     }
-  } async franklin(req, res) {
+  }  async focusFox(req, res) {
+    try {
+      const response = await postDataToCRMFocusFox(req.body);
+      console.log(response);
+      res.json(response.data);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  }
+  async franklin(req, res) {
     try {
       const response = await postDataToCrmFranklin(req.body);
       console.log(response);
